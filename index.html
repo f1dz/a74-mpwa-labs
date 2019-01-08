@@ -23,6 +23,23 @@
 
   <div class="body-content container"></div>
 
+  <script>
+    if('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => {
+            console.log('Pendaftaran SW berhasil');
+          })
+          .catch(() => {
+            console.log('Pendaftaran SW gagal');
+          });
+      })
+    } else {
+      console.log('SW belum didukung browser ini');
+      
+    }
+  </script>
+
   <script src="js/materialize.min.js"></script>
   <script src="js/script.js"></script>
 </body>
